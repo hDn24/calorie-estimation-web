@@ -54,7 +54,7 @@ class App extends React.Component {
           style={{
             display: "flex",
             flexDirection: "row",
-            height: "100vh",
+            height: "500vh",
             width: "100%"
           }}
         >
@@ -65,10 +65,10 @@ class App extends React.Component {
                 <div
                   style={{ display: "flex", justifyContent: "center" }}
                   key={id}
-                >
+                >g
                   <img
                     src={it}
-                    width="400px"
+                    width="80%"
                     height="400px"
                     style={{ objectFit: "revert", borderRadius: "20px" }}
                     alt="t"
@@ -94,7 +94,7 @@ class App extends React.Component {
                 >
                   <img
                     src={it}
-                    width="400px"
+                    width="80%"
                     height="400px"
                     style={{ objectFit: "revert", borderRadius: "20px" }}
                     alt="t"
