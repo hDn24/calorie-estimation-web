@@ -73,7 +73,6 @@ class App extends React.Component {
                     style={{ objectFit: "revert", borderRadius: "20px" }}
                     alt="t"
                   />
-                  <div style={{ height: '20px' }}></div>
                 </div>
               ))}
             </div>
