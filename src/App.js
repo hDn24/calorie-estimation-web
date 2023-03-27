@@ -71,7 +71,7 @@ class App extends React.Component {
                     src={it}
                     width="400px"
                     height="400px"
-                    style={{ objectFit: "revert"}}
+                    style={{ objectFit: "revert", borderRadius: "20px" }}
                     alt="t"
                   />
                   <div style={{ height: '20px' }}></div>
@@ -97,7 +97,7 @@ class App extends React.Component {
                     src={it}
                     width="400px"
                     height="400px"
-                    style={{ objectFit: "revert"}}
+                    style={{ objectFit: "revert", borderRadius: "20px" }}
                     alt="t"
                   />
                 </div>
