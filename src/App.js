@@ -43,7 +43,6 @@ class App extends React.Component {
       .catch((e) => {
         this.setState({ loading: false });
       });
-    console.log(this.state.enhancementImages);
   }
 
   render() {
@@ -102,7 +101,6 @@ class App extends React.Component {
                   />
                 </div>
               ))}
-              {/* {console.log(this.state.enhancementImages)} */}
               {this.state.loading && <p>Loading ...</p>}
             </div>
           </div>
