@@ -1,25 +1,116 @@
-import logo from './logo.svg';
 import './App.css';
+import React from "react";
+import axios from "axios";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+const API_DOMAIN = "http://127.0.0.1:5001";
+
+
+class App extends React.Component {
+  constructor() {
+    super();
+    this.handleUploadImages = this.handleUploadImages.bind(this);
+  }
+  state = {
+    rawImages: [],
+    enhancementImages: [],
+    loading: false
+  };
+
+  handleUploadImages(e) {
+    this.setState({ loading: true, enhancementImages: [] });
+    const files = e.target.files;
+    const res = [];
+    const upload = [];
+    const form = new FormData();
+    for (let i = 0; i < files.length; i++) {
+      let file = files.item(i);
+      res.push(URL.createObjectURL(file));
+      upload.push(file);
+      form.append("file[]", file);
+    }
+    this.setState({
+      rawImages: res
+    });
+    axios
+      .post(`${API_DOMAIN}/detect`, form)
+      .then((res) => {
+        console.log(res.data);
+        this.setState({
+          enhancementImages: res.data.paths.map((it) => `${API_DOMAIN}/${it}`)
+        });
+        this.setState({ loading: false });
+      })
+      .catch((e) => {
+        this.setState({ loading: false });
+      });
+    console.log(this.state.enhancementImages);
+  }
+
+  render() {
+    return (
+      <React.Fragment>
+        <input type="file" multiple onChange={this.handleUploadImages} />
+        <div
+          className="main-container"
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            height: "100vh",
+            width: "100%"
+          }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+          <div style={{ width: "50%", backgroundColor: "pink" }}>
+            <h2 style={{ textAlign: "center" }}>The raw input images</h2>
+            <div>
+              {this.state.rawImages.map((it, id) => (
+                <div
+                  style={{ display: "flex", justifyContent: "center" }}
+                  key={id}
+                >
+                  <img
+                    src={it}
+                    width="400px"
+                    height="400px"
+                    style={{ objectFit: "revert"}}
+                    alt="t"
+                  />
+                  <div style={{ height: '20px' }}></div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div
+            style={{
+              width: "50%",
+              backgroundColor: "green"
+            }}
+          >
+            <h2 style={{ textAlign: "center" }}>Food detections</h2>
+            <div>
+              {this.state.enhancementImages.map((it, id) => (
+                <div
+                  style={{ display: "flex", justifyContent: "center" }}
+                  key={id}
+                >
+                  <img
+                    src={it}
+                    width="400px"
+                    height="400px"
+                    style={{ objectFit: "revert"}}
+                    alt="t"
+                  />
+                </div>
+              ))}
+              {/* {console.log(this.state.enhancementImages)} */}
+              {this.state.loading && <p>Loading ...</p>}
+            </div>
+          </div>
+        </div>
+      </React.Fragment >
+    );
+  }
 }
+
 
 export default App;
