@@ -65,7 +65,7 @@ class App extends React.Component {
                 <div
                   style={{ display: "flex", justifyContent: "center" }}
                   key={id}
-                >g
+                >
                   <img
                     src={it}
                     width="80%"
