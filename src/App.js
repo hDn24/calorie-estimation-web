@@ -101,7 +101,7 @@ class App extends React.Component {
                   />
                 </div>
               ))}
-              {this.state.loading && <p>Loading ...</p>}
+              {this.state.loading && <p style={{ textAlign: "center" }}>Loading ...</p>}
             </div>
           </div>
         </div>
