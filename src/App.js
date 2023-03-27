@@ -43,7 +43,6 @@ class App extends React.Component {
       .catch((e) => {
         this.setState({ loading: false });
       });
-    console.log(this.state.enhancementImages);
   }
 
   render() {
@@ -55,7 +54,7 @@ class App extends React.Component {
           style={{
             display: "flex",
             flexDirection: "row",
-            height: "100vh",
+            height: "500vh",
             width: "100%"
           }}
         >
@@ -66,15 +65,14 @@ class App extends React.Component {
                 <div
                   style={{ display: "flex", justifyContent: "center" }}
                   key={id}
-                >
+                >g
                   <img
                     src={it}
-                    width="400px"
+                    width="80%"
                     height="400px"
-                    style={{ objectFit: "revert"}}
+                    style={{ objectFit: "revert", borderRadius: "20px" }}
                     alt="t"
                   />
-                  <div style={{ height: '20px' }}></div>
                 </div>
               ))}
             </div>
@@ -95,15 +93,14 @@ class App extends React.Component {
                 >
                   <img
                     src={it}
-                    width="400px"
+                    width="80%"
                     height="400px"
-                    style={{ objectFit: "revert"}}
+                    style={{ objectFit: "revert", borderRadius: "20px" }}
                     alt="t"
                   />
                 </div>
               ))}
-              {/* {console.log(this.state.enhancementImages)} */}
-              {this.state.loading && <p>Loading ...</p>}
+              {this.state.loading && <p style={{ textAlign: "center" }}>Loading ...</p>}
             </div>
           </div>
         </div>
