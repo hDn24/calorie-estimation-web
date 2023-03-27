@@ -1,5 +1,5 @@
 # Food detetions
-[image](https://github.com/hDn24/food-detection-fe/results.png)
+![alt text](https://github.com/hDn24/food-detection-fe/blob/feature/get_results/results.png)
 
 # Getting Started with Create Regact App
 
