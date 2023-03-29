@@ -1,6 +1,7 @@
 import './App.css';
 import React from "react";
 import axios from "axios";
+import { CircularProgress } from "react-loading-indicators";
 
 const API_DOMAIN = "http://127.0.0.1:5001";
 
@@ -100,7 +101,8 @@ class App extends React.Component {
                   />
                 </div>
               ))}
-              {this.state.loading && <p style={{ textAlign: "center" }}>Loading ...</p>}
+              {this.state.loading &&
+                <CircularProgress variant="bubble-dotted" color="#ea123f" size="large" text="Loading" textColor="" />}
             </div>
           </div>
         </div>
