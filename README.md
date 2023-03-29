@@ -1,4 +1,7 @@
-# Getting Started with Create React App
+# Food detetions
+![alt text](https://github.com/hDn24/food-detection-fe/blob/feature/get_results/results.png)
+
+# Getting Started with Create Regact App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
