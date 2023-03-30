@@ -82,7 +82,7 @@ class App extends React.Component {
           <div
             style={{
               width: "50%",
-              backgroundColor: "green"
+              backgroundColor: "rgb(22, 27, 29)"
             }}
           >
             <h2 style={{ textAlign: "center" }}>Food detections</h2>
