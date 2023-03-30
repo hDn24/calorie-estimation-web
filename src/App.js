@@ -59,7 +59,7 @@ class App extends React.Component {
             width: "100%"
           }}
         >
-          <div style={{ width: "50%", backgroundColor: "pink" }}>
+          <div style={{ width: "50%", backgroundColor: "lightblue" }}>
             <h2 style={{ textAlign: "center" }}>The raw input images</h2>
             <div>
               {this.state.rawImages.map((it, id) => (
