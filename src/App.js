@@ -59,8 +59,8 @@ class App extends React.Component {
             width: "100%"
           }}
         >
-          <div style={{ width: "50%", backgroundColor: "pink" }}>
-            <h2 style={{ textAlign: "center" }}>The raw input images</h2>
+          <div style={{ width: "50%", backgroundColor: "lightblue" }}>
+            <h2 style={{ textAlign: "center", color: 'orange' }}>The raw input images</h2>
             <div>
               {this.state.rawImages.map((it, id) => (
                 <div
@@ -82,10 +82,10 @@ class App extends React.Component {
           <div
             style={{
               width: "50%",
-              backgroundColor: "green"
+              backgroundColor: "rgb(22, 27, 29)"
             }}
           >
-            <h2 style={{ textAlign: "center" }}>Food detections</h2>
+            <h2 style={{ textAlign: "center", color: 'orange' }}>Food detections</h2>
             <div>
               {this.state.enhancementImages.map((it, id) => (
                 <div
