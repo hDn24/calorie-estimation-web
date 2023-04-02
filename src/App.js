@@ -102,7 +102,10 @@ class App extends React.Component {
                 </div>
               ))}
               {this.state.loading &&
-                <CircularProgress variant="bubble-dotted" color="#ea123f" size="large" text="Loading" textColor="" />}
+                <div style={{ display: "flex", flexDirection: 'row', justifyContent: "center", alignContent: "center" }}>
+                  <CircularProgress variant="bubble-dotted" color="#ea123f" size="large" text="Loading" textColor="" />
+                </div>
+              }
             </div>
           </div>
         </div>
