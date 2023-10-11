@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { CircularProgress } from "react-loading-indicators";
 import Header from './app/components/header/Header';
+import Footer from './app/components/footer/Footer';
 
 const App = () => {
 
@@ -109,8 +110,8 @@ const App = () => {
           </div>
         </div>
       </div>
+      <Footer></Footer>
     </>
-
   )
 }
 
