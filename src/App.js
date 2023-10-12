@@ -58,12 +58,12 @@ const App = () => {
         style={{
           display: "flex",
           flexDirection: "row",
-          height: "200px",
+          height: "500px",
           width: "100%"
         }}
       >
         <div style={{ width: "50%", backgroundColor: "lightblue" }}>
-          <h2 style={{ textAlign: "center", color: 'orange' }}>The raw input images</h2>
+          <h2 style={{ textAlign: "center", color: 'orange' }}>Input images</h2>
           <div>
             {data.rawImages?.map((it, id) => (
               <div
@@ -88,7 +88,7 @@ const App = () => {
             backgroundColor: "rgb(22, 27, 29)"
           }}
         >
-          <h2 style={{ textAlign: "center", color: 'orange' }}>Food detections</h2>
+          <h2 style={{ textAlign: "center", color: 'orange' }}>Calories estimation</h2>
           <div>
             {data.enhancementImages?.map((it, id) => (
               <div
