@@ -45,10 +45,13 @@ const Section = () => {
 
     }
 
+    const [check, setCheck] = useState(true)
+
     const toogleImage = (event) => {
         setData({
             rawImages: ["../../../assets/image/data.png"],
         });
+        setCheck(false)
     }
 
     return (
@@ -76,14 +79,7 @@ const Section = () => {
                             <p class="about__description">We estimate the most accurate calorie content on your plate, with quick and accurate responses when you need to estimate calorie content, try our service</p>
                             <button className="button" onClick={(event) => { toogleImage(event) }}>Try to estimate</button>
                         </div>
-                        {data.rawImages?.map((it, id) => (
-                            <img
-                                src={it}
-                                alt="t"
-                                class="about__img"
-                            />
-                        ))}
-                        {/* <img src={"../../../assets/image/data.png"} alt="" class="about__img" /> */}
+                        {check ? <img src={require("../../../assets/image/raw_data.jpg")} alt="" class="about__img" /> : <img src={require("../../../assets/image/data.png")} alt="" class="about__img" />}
                     </div>
                 </section>
 
