@@ -1,118 +1,120 @@
 import './App.css';
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { CircularProgress } from "react-loading-indicators";
+import Header from './app/components/header/Header';
+import Footer from './app/components/footer/Footer';
+import Section from './app/components/section/Section';
 
-const API_DOMAIN = "http://127.0.0.1:5001";
+const App = () => {
 
-
-class App extends React.Component {
-  constructor() {
-    super();
-    this.handleUploadImages = this.handleUploadImages.bind(this);
-  }
-  state = {
+  const [data, setData] = useState({
     rawImages: [],
     enhancementImages: [],
     loading: false
-  };
+  })
 
-  handleUploadImages(e) {
-    this.setState({ loading: true, enhancementImages: [] });
-    const files = e.target.files;
-    const res = [];
+  const handleUploadImages = (event) => {
+    setData({ loading: true, enhancementImages: [] });
+    const files = event.target.files;
+    const uploaded_img = [];
     const upload = [];
     const form = new FormData();
     for (let i = 0; i < files.length; i++) {
       let file = files.item(i);
-      res.push(URL.createObjectURL(file));
+      uploaded_img.push(URL.createObjectURL(file));
       upload.push(file);
       form.append("file[]", file);
     }
-    this.setState({
-      rawImages: res
+    setData({
+      rawImages: uploaded_img
     });
+
+    const API_DOMAIN = "http://127.0.0.1:5001";
+
     axios
       .post(`${API_DOMAIN}/detect`, form)
       .then((res) => {
         console.log(res.data);
-        this.setState({
-          enhancementImages: res.data.paths.map((it) => `${API_DOMAIN}/${it}`)
+        setData({
+          rawImages: uploaded_img,
+          enhancementImages: res.data.paths.map((it) => `${API_DOMAIN}/${it}`),
+          loading: false
         });
-        this.setState({ loading: false });
       })
-      .catch((e) => {
-        this.setState({ loading: false });
+      .catch((event) => {
+        setData({ loading: false });
       });
+
   }
 
-  render() {
-    return (
-      <React.Fragment>
-        <input type="file" multiple onChange={this.handleUploadImages} />
-        <div
-          className="main-container"
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            height: "500vh",
-            width: "100%"
-          }}
-        >
-          <div style={{ width: "50%", backgroundColor: "lightblue" }}>
-            <h2 style={{ textAlign: "center", color: 'orange' }}>The raw input images</h2>
-            <div>
-              {this.state.rawImages.map((it, id) => (
-                <div
-                  style={{ display: "flex", justifyContent: "center" }}
-                  key={id}
-                >
-                  <img
-                    src={it}
-                    width="80%"
-                    height="80%"
-                    style={{ objectFit: "revert", borderRadius: "50px" }}
-                    alt="t"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div
-            style={{
-              width: "50%",
-              backgroundColor: "rgb(22, 27, 29)"
-            }}
-          >
-            <h2 style={{ textAlign: "center", color: 'orange' }}>Food detections</h2>
-            <div>
-              {this.state.enhancementImages.map((it, id) => (
-                <div
-                  style={{ display: "flex", justifyContent: "center" }}
-                  key={id}
-                >
-                  <img
-                    src={it}
-                    width="80%"
-                    height="80%"
-                    style={{ objectFit: "revert", borderRadius: "50px" }}
-                    alt="t"
-                  />
-                </div>
-              ))}
-              {this.state.loading &&
-                <div style={{ display: "flex", flexDirection: 'row', justifyContent: "center", alignContent: "center" }}>
-                  <CircularProgress variant="bubble-dotted" color="#ea123f" size="large" text="Loading" textColor="" />
-                </div>
-              }
-            </div>
+  return (
+    <>
+      <Header></Header>
+      <Section></Section>
+      <input type="file" multiple onChange={(event) => { handleUploadImages(event) }} />
+      <div
+        className="main-container"
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          height: "500px",
+          width: "100%"
+        }}
+      >
+        <div style={{ width: "50%", backgroundColor: "lightblue" }}>
+          <h2 style={{ textAlign: "center", color: 'orange' }}>Input images</h2>
+          <div>
+            {data.rawImages?.map((it, id) => (
+              <div
+                style={{ display: "flex", justifyContent: "center" }}
+                key={id}
+              >
+                <img
+                  src={it}
+                  width="80%"
+                  height="80%"
+                  style={{ objectFit: "revert", borderRadius: "50px" }}
+                  alt="t"
+                />
+              </div>
+            ))}
           </div>
         </div>
-      </React.Fragment >
-    );
-  }
-}
 
+        <div
+          style={{
+            width: "50%",
+            backgroundColor: "rgb(22, 27, 29)"
+          }}
+        >
+          <h2 style={{ textAlign: "center", color: 'orange' }}>Calories estimation</h2>
+          <div>
+            {data.enhancementImages?.map((it, id) => (
+              <div
+                style={{ display: "flex", justifyContent: "center" }}
+                key={id}
+              >
+                <img
+                  src={it}
+                  width="80%"
+                  height="80%"
+                  style={{ objectFit: "revert", borderRadius: "50px" }}
+                  alt="t"
+                />
+              </div>
+            ))}
+            {data.loading &&
+              <div style={{ display: "flex", flexDirection: 'row', justifyContent: "center", alignContent: "center" }}>
+                <CircularProgress variant="bubble-dotted" color="#ea123f" size="large" text="Loading" textColor="" />
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+      <Footer></Footer>
+    </>
+  )
+}
 
 export default App;
