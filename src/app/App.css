@@ -327,6 +327,30 @@ img {
   background-color: var(--first-color-alt);
 }
 
+/*========== ABOUT ==========*/
+.about__data {
+  text-align: center;
+}
+
+.about__description {
+  margin-bottom: var(--mb-3);
+}
+
+.about__img {
+  width: 280px;
+  border-radius: .5rem;
+  justify-self: center;
+}
+
+/*========== CONTACT ==========*/
+.contact__container { 
+  text-align: center;
+}
+
+.contact__description {
+  margin-bottom: var(--mb-3);
+}
+
 /*========== FOOTER ==========*/
 .footer__container {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -469,7 +493,7 @@ img {
 
   .about__container,
   .app__container {
-    column-gap: 7rem;
+    column-gap: 5rem;
   }
 }
 

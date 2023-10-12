@@ -6,7 +6,7 @@ const Header = () => {
             </a>
             <header class="l-header" id="header">
                 <nav class="nav bd-container">
-                    <a href="#" class="nav__logo">Food detection</a>
+                    <a href="#" class="nav__logo">Calories estimation</a>
 
                     <div class="nav__menu" id="nav-menu">
                         <ul class="nav__list">

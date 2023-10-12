@@ -4,7 +4,7 @@ const Footer = () => {
             <footer class="footer section bd-container">
                 <div class="footer__container bd-grid">
                     <div class="footer__content">
-                        <a href="#" class="footer__logo">Food detection</a>
+                        <a href="#" class="footer__logo">Calories estimation</a>
                         <span class="footer__description">Restaurant</span>
                         <div>
                             <a href="#" class="footer__social"><i class='bx bxl-facebook'></i></a>
@@ -18,7 +18,7 @@ const Footer = () => {
                         <ul>
                             <li><a href="#" class="footer__link">Delivery</a></li>
                             <li><a href="#" class="footer__link">Pricing</a></li>
-                            <li><a href="#" class="footer__link">Fast food</a></li>
+                            <li><a href="#" class="footer__link">Fast estimate</a></li>
                             <li><a href="#" class="footer__link">Reserve your spot</a></li>
                         </ul>
                     </div>
