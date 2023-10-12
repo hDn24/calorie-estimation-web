@@ -6,7 +6,7 @@ const Section = () => {
 
 
     const [data, setData] = useState({
-        rawImages: [''],
+        rawImages: ["../../../assets/image/raw_data.jpg"],
         enhancementImages: [''],
         loading: false
     })
@@ -45,6 +45,12 @@ const Section = () => {
 
     }
 
+    const toogleImage = (event) => {
+        setData({
+            rawImages: ["../../../assets/image/data.png"],
+        });
+    }
+
     return (
         <>
             <main class="l-main">
@@ -68,10 +74,16 @@ const Section = () => {
                             <span class="section-subtitle about__initial">About our services</span>
                             <h2 class="section-title about__initial"> We accurately estimate <br /> the calorie content <br /> in the main dish</h2>
                             <p class="about__description">We estimate the most accurate calorie content on your plate, with quick and accurate responses when you need to estimate calorie content, try our service</p>
-                            <a href="#" class="button">Try to estimate</a>
+                            <button className="button" onClick={(event) => { toogleImage(event) }}>Try to estimate</button>
                         </div>
-
-                        <img src={require("../../../assets/image/raw_data.jpg")} alt="" class="about__img" />
+                        {data.rawImages?.map((it, id) => (
+                            <img
+                                src={it}
+                                alt="t"
+                                class="about__img"
+                            />
+                        ))}
+                        {/* <img src={"../../../assets/image/data.png"} alt="" class="about__img" /> */}
                     </div>
                 </section>
 
