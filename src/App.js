@@ -4,6 +4,7 @@ import axios from "axios";
 import { CircularProgress } from "react-loading-indicators";
 import Header from './app/components/header/Header';
 import Footer from './app/components/footer/Footer';
+import Section from './app/components/section/Section';
 
 const App = () => {
 
@@ -50,13 +51,14 @@ const App = () => {
   return (
     <>
       <Header></Header>
+      <Section></Section>
       <input type="file" multiple onChange={(event) => { handleUploadImages(event) }} />
       <div
         className="main-container"
         style={{
           display: "flex",
           flexDirection: "row",
-          height: "80%",
+          height: "200px",
           width: "100%"
         }}
       >
