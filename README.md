@@ -1,5 +1,7 @@
 # Food detetions
 
+## Try a demo here: https://food-detection.vercel.app/
+
 ![alt text](https://github.com/hDn24/food-detection-web/blob/main/src/assets/results.png)
 
 # Getting Started with Create React App
