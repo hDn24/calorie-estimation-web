@@ -4,6 +4,7 @@ import axios from "axios";
 import { CircularProgress } from "react-loading-indicators";
 import Header from './app/components/header/Header';
 import Footer from './app/components/footer/Footer';
+import Section from './app/components/section/Section';
 
 const App = () => {
 
@@ -50,18 +51,19 @@ const App = () => {
   return (
     <>
       <Header></Header>
+      <Section></Section>
       <input type="file" multiple onChange={(event) => { handleUploadImages(event) }} />
       <div
         className="main-container"
         style={{
           display: "flex",
           flexDirection: "row",
-          height: "80%",
+          height: "500px",
           width: "100%"
         }}
       >
         <div style={{ width: "50%", backgroundColor: "lightblue" }}>
-          <h2 style={{ textAlign: "center", color: 'orange' }}>The raw input images</h2>
+          <h2 style={{ textAlign: "center", color: 'orange' }}>Input images</h2>
           <div>
             {data.rawImages?.map((it, id) => (
               <div
@@ -86,7 +88,7 @@ const App = () => {
             backgroundColor: "rgb(22, 27, 29)"
           }}
         >
-          <h2 style={{ textAlign: "center", color: 'orange' }}>Food detections</h2>
+          <h2 style={{ textAlign: "center", color: 'orange' }}>Calories estimation</h2>
           <div>
             {data.enhancementImages?.map((it, id) => (
               <div
