@@ -6,28 +6,29 @@ const Section = () => {
 
 
     const [data, setData] = useState({
-        rawImages: ["../../../assets/image/raw_data.jpg"],
-        enhancementImages: [''],
+        rawImages: [""],
+        enhancementImages: [""],
         loading: false
     })
 
     const handleUploadImages = (event) => {
-        setData({ loading: true, enhancementImages: [] });
         const files = event.target.files;
         const uploaded_img = [];
         const upload = [];
         const form = new FormData();
         for (let i = 0; i < files.length; i++) {
             let file = files.item(i);
+            console.log(file)
             uploaded_img.push(URL.createObjectURL(file));
             upload.push(file);
             form.append("file[]", file);
         }
         setData({
-            rawImages: uploaded_img
+            rawImages: uploaded_img,
+            loading: true
         });
 
-        const API_DOMAIN = "http://127.0.0.1:5001";
+        const API_DOMAIN = "https://calories-estimation.onrender.com";
 
         axios
             .post(`${API_DOMAIN}/detect`, form)
@@ -77,13 +78,15 @@ const Section = () => {
                             <span class="section-subtitle about__initial">About our services</span>
                             <h2 class="section-title about__initial"> We accurately estimate <br /> the calorie content <br /> in the main dish</h2>
                             <p class="about__description">We estimate the most accurate calorie content on your plate, with quick and accurate responses when you need to estimate calorie content, try our service</p>
-                            <button className="button" onClick={(event) => { toogleImage(event) }}>Try to estimate</button>
+                            <div style={{ display: "flex", flexDirection: 'row' }}>
+                                <a class="button" onClick={(event) => { toogleImage(event) }}>Try to estimate</a>
+                            </div>
                         </div>
                         {check ? <img src={require("../../../assets/image/raw_data.jpg")} alt="" class="about__img" /> : <img src={require("../../../assets/image/data.png")} alt="" class="about__img" />}
                     </div>
                 </section>
 
-                {/* <div
+                <div
                     className="main-container bd-container"
                     style={{
                         display: "flex",
@@ -91,8 +94,8 @@ const Section = () => {
                         height: "350px",
                         width: "100%"
                     }}
-                > */}
-                {/* <div style={{ width: "50%", backgroundColor: "white" }}>
+                >
+                    <div style={{ width: "50%", backgroundColor: "white" }}>
                         <h2 style={{ textAlign: "center", color: 'orange' }}>Input images</h2>
                         <div>
                             {data.rawImages?.map((it, id) => (
@@ -101,7 +104,7 @@ const Section = () => {
                                     key={id}
                                 >
                                     <img
-                                        src={require("../../../assets/image/raw_data.jpg")}
+                                        src={it}
                                         width="350px"
                                         height="350px"
                                         style={{ objectFit: "revert", borderRadius: "170px" }}
@@ -110,13 +113,13 @@ const Section = () => {
                                 </div>
                             ))}
                         </div>
-                    </div> */}
+                    </div>
 
-                {/* <div style={{ display: "flex", flexDirection: "inherit", alignItems: "center" }}>
+                    <div style={{ display: "flex", flexDirection: "inherit", alignItems: "center" }}>
                         <input type="file" multiple onChange={(event) => { handleUploadImages(event) }} />
-                    </div> */}
+                    </div>
 
-                {/* <div
+                    <div
                         style={{
                             width: "50%",
                             backgroundColor: "white"
@@ -130,7 +133,7 @@ const Section = () => {
                                     key={id}
                                 >
                                     <img
-                                        src={require("../../../assets/image/data.png")}
+                                        src={it}
                                         width="350px"
                                         height="350px"
                                         style={{ objectFit: "revert", borderRadius: "170px" }}
@@ -144,8 +147,8 @@ const Section = () => {
                                 </div>
                             }
                         </div>
-                    </div> */}
-                {/* </div> */}
+                    </div>
+                </div>
 
                 {/* <!--========== CONTACT US ==========--> */}
                 <section class="contact section bd-container" id="contact">
