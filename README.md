@@ -1,4 +1,5 @@
-# Food detetions
+# Calorie estimation
+Calorie estimation web project
 
 ## Try a demo here: https://food-detection.vercel.app/
 
