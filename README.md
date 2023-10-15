@@ -1,7 +1,7 @@
 # Calorie estimation
 Calorie estimation web project
 
-## Try a demo here: https://food-detection.vercel.app/
+## Try a demo here: https://calories-estimation.vercel.app
 
 ![alt text](https://github.com/hDn24/food-detection-web/blob/main/src/assets/results.png)
 
