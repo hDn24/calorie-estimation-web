@@ -1,6 +1,7 @@
 const Contact = () => {
     return (
         <section className="contact section bd-container" id="contact">
+            {/* Contact Data */}
             <div className="contact__container bd-grid">
                 <div className="contact__data">
                     <span className="section-subtitle contact__initial">Let's talk</span>
@@ -8,6 +9,7 @@ const Contact = () => {
                     <p className="contact__description">If you want to use our services, please contact us, and we will respond promptly with our 24/7 live chat support</p>
                 </div>
 
+                {/* Contact Button */}
                 <div className="contact__button">
                     <a href="#" className="button">Contact us now</a>
                 </div>
@@ -15,5 +17,4 @@ const Contact = () => {
         </section>
     )
 }
-
 export default Contact;
