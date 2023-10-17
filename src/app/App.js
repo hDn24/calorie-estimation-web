@@ -8,11 +8,11 @@ import Section from './components/section/Section';
 const App = () => {
   return (
     <>
-      <Header></Header>
-      <Section></Section>
-      <Footer></Footer>
+      <Header />
+      <Section />
+      <Footer />
     </>
-  )
-}
+  );
+};
 
 export default App;
