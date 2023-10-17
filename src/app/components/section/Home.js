@@ -8,7 +8,9 @@ const Home = () => {
                     <a href="#" className="button">Use service</a>
                 </div>
 
-                <img src={require("../../../assets/image/main_logo.png")} style={{ objectFit: "revert", borderRadius: "50px" }}
+                <img
+                    src={require("../../../assets/image/main_logo.png")}
+                    style={{ objectFit: "revert", borderRadius: "50px" }}
                     alt="" className="home__img" />
             </div>
         </section>
