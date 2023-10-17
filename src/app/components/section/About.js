@@ -3,7 +3,7 @@ import { useState } from "react";
 const About = () => {
     const [isImageVisible, setImageVisible] = useState(true);
 
-    const toggleImage = () => {
+    const toogleImage = () => {
         setImageVisible(false);
     };
 
