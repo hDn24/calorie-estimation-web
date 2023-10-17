@@ -5,15 +5,13 @@ import Contact from "./Contact";
 
 const Section = () => {
     return (
-        <>
-            <main class="l-main">
-                <Home></Home>
-                <About></About>
-                <CalorieEstimation></CalorieEstimation>
-                <Contact></Contact>
-            </main>
-        </>
-    )
-}
+        <main className="l-main">
+            <Home />
+            <About />
+            <CalorieEstimation />
+            <Contact />
+        </main>
+    );
+};
 
 export default Section;
