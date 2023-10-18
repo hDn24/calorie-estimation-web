@@ -1,11 +1,12 @@
 import { useState } from "react";
 
 const About = () => {
-    const [check, setCheck] = useState(true)
+    const [isImageVisible, setImageVisible] = useState(true);
 
-    const toogleImage = (event) => {
-        setCheck(false)
-    }
+    const toogleImage = () => {
+        setImageVisible(false);
+    };
+
     return (
         <section class="about section bd-container" id="about">
             <div class="about__container  bd-grid">
@@ -17,10 +18,9 @@ const About = () => {
                         <a class="button" onClick={(event) => { toogleImage(event) }}>Try to estimate</a>
                     </div>
                 </div>
-                {check ? <img src={require("../../../assets/image/raw_data.jpg")} alt="" class="about__img" /> : <img src={require("../../../assets/image/data.png")} alt="" class="about__img" />}
+                {isImageVisible ? <img src={require("../../../assets/image/raw_data.jpg")} alt="" class="about__img" /> : <img src={require("../../../assets/image/data.png")} alt="" class="about__img" />}
             </div>
         </section>
-    )
-}
-
+    );
+};
 export default About;
