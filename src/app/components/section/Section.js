@@ -6,7 +6,7 @@ import Contact from "./Contact";
 const Section = () => {
     return (
         <>
-            <main class="l-main">
+            <main className="l-main">
                 <Home></Home>
                 <About></About>
                 <CalorieEstimation></CalorieEstimation>
